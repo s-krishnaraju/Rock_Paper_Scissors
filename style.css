@@ -1,8 +1,10 @@
 .selection{
     display: flex;
     justify-content: center;
+    gap: 2rem;
 }
-button {    
+
+.selection button{    
 height: 20rem;
 width: 20rem;
 font-size: 4rem;
@@ -18,8 +20,23 @@ font-size: 4rem;
     justify-content: space-evenly;
 }
 
-#winner{
-    display: none ;
+.versus, .winner{
     text-align: center;
     font-size: 52px;
+    margin: 3rem;
+}
+.winner{
+
+    display: none;
+
+}
+
+
+.replay{
+    display: none;
+    margin: auto;
+    font-size: 2rem;
+    width: 20rem;
+    height: 10rem;
+    
 }

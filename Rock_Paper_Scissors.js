@@ -37,59 +37,49 @@ let round = (player, computer) => {
     }
 };
 
-let game = () => {
-    playerCount = 0
-    computerCount = 0
-    for (let i = 0; i < 5; i++) {
-        console.log("ROUND " + (i + 1))
-        let playerSelection = prompt("Enter Rock, Paper, or Scissors")
-        computer = getComputerChoice()
-        result = round(playerSelection, computer)
-        if (result == "Computer") {
-            computerCount++
-        } else if (result == "Player") {
-
-            playerCount++
-        }
-        console.log("Computer score: " + computerCount)
-        console.log("Player score: " + playerCount)
-    }
-    if (computerCount > playerCount) {
-        console.log("The winner is the Computer")
-    } else if (computerCount < playerCount) {
-        console.log("The winner is the Player")
-    } else {
-        console.log("It's a draw")
-    }
-}
-
 playerCount = 0
 computerCount = 0
+const playerScore = document.querySelector('.player')
+const computerScore = document.querySelector('.computer')
+const div1 = document.querySelector('.winner')
+const div2 = document.querySelector('.selection')
+const replay = document.querySelector('.replay')
 const buttons = document.querySelectorAll('button')
+const versus = document.querySelectorAll('.versus')
 buttons.forEach((button) => {
 
     button.addEventListener('click', () => {
-        const playerScore = document.querySelector('.player')
-        const computerScore = document.querySelector('.computer')
-
-    })
-
-})
-
-function game() {
-
-    while (playerCount < 5 || computerCount < 5) {
-        result = round(button.id, getComputerChoice())
+        computer = getComputerChoice()
+        result = round(button.id, computer)
         if (result == "Computer") {
             computerCount++
         } else if (result == "Player") {
-
             playerCount++
         }
         playerScore.textContent = 'Player: ' + playerCount
         computerScore.textContent = 'CPU: ' + computerCount
-    }
+        if (playerCount == 5) {
+            div1.textContent = 'Winner is Player'
+            div2.style.display = "none"
+            div1.style.display = "block"
+            replay.style.display = "block"
 
-    
+        } else if (computerCount == 5) {
+            div1.textContent = 'Winner is Computer'
+            div2.style.display = "none"
+            div1.style.display = "block"
+            replay.style.display = "block"
+        }
+    })
+})
 
-}
+replay.addEventListener('click', () => {
+    playerCount = 0
+    computerCount = 0
+    playerScore.textContent = 'Player: ' + playerCount
+    computerScore.textContent = 'CPU: ' + computerCount
+    div2.style.display = "flex"
+    div1.style.display = "none"
+    replay.style.display = "none"
+})
+
