@@ -63,5 +63,33 @@ let game = () => {
     }
 }
 
-game()
+playerCount = 0
+computerCount = 0
+const buttons = document.querySelectorAll('button')
+buttons.forEach((button) => {
 
+    button.addEventListener('click', () => {
+        const playerScore = document.querySelector('.player')
+        const computerScore = document.querySelector('.computer')
+
+    })
+
+})
+
+function game() {
+
+    while (playerCount < 5 || computerCount < 5) {
+        result = round(button.id, getComputerChoice())
+        if (result == "Computer") {
+            computerCount++
+        } else if (result == "Player") {
+
+            playerCount++
+        }
+        playerScore.textContent = 'Player: ' + playerCount
+        computerScore.textContent = 'CPU: ' + computerCount
+    }
+
+    
+
+}
